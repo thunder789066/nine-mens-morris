@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0">
+         <children>
+            <Label alignment="CENTER" layoutX="134.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="315.0" layoutX="122.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="355.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="220.0" layoutX="179.0" layoutY="78.0" stroke="BLACK" strokeType="INSIDE" width="241.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="154.0" layoutX="224.0" layoutY="111.0" stroke="BLACK" strokeType="INSIDE" width="151.0" />
+            <Line layoutX="224.0" layoutY="191.0" startX="-100.0" />
+            <Line endX="-4.0" layoutX="481.0" layoutY="191.0" startX="-105.0" />
+            <Line endX="-100.0" endY="-78.0" layoutX="399.0" layoutY="344.0" startX="-100.0" />
+            <Line endX="-100.0" endY="-87.0" layoutX="398.0" layoutY="117.0" startX="-100.0" startY="-8.0" />
+            <RadioButton layoutX="116.0" layoutY="22.0" mnemonicParsing="false" />
+            <RadioButton layoutX="291.0" layoutY="22.0" mnemonicParsing="false" />
+            <RadioButton layoutX="469.0" layoutY="22.0" mnemonicParsing="false" />
+            <RadioButton layoutX="114.0" layoutY="182.0" mnemonicParsing="false" />
+            <RadioButton layoutX="116.0" layoutY="337.0" mnemonicParsing="false" />
+            <RadioButton layoutX="292.0" layoutY="336.0" mnemonicParsing="false" />
+            <RadioButton layoutX="171.0" layoutY="183.0" mnemonicParsing="false" />
+            <RadioButton layoutX="216.0" layoutY="183.0" mnemonicParsing="false" />
+            <RadioButton layoutX="171.0" layoutY="70.0" mnemonicParsing="false" />
+            <RadioButton layoutX="290.0" layoutY="70.0" mnemonicParsing="false" />
+            <RadioButton layoutX="412.0" layoutY="70.0" mnemonicParsing="false" />
+            <RadioButton layoutX="290.0" layoutY="103.0" mnemonicParsing="false" />
+            <RadioButton layoutX="217.0" layoutY="103.0" mnemonicParsing="false" />
+            <RadioButton layoutX="367.0" layoutY="103.0" mnemonicParsing="false" />
+            <RadioButton layoutX="367.0" layoutY="183.0" mnemonicParsing="false" />
+            <RadioButton layoutX="412.0" layoutY="182.0" mnemonicParsing="false" />
+            <RadioButton layoutX="469.0" layoutY="182.0" mnemonicParsing="false" />
+            <RadioButton layoutX="217.0" layoutY="257.0" mnemonicParsing="false" />
+            <RadioButton layoutX="290.0" layoutY="257.0" mnemonicParsing="false" />
+            <RadioButton layoutX="367.0" layoutY="257.0" mnemonicParsing="false" />
+            <RadioButton layoutX="412.0" layoutY="290.0" mnemonicParsing="false" />
+            <RadioButton layoutX="292.0" layoutY="290.0" mnemonicParsing="false" />
+            <RadioButton layoutX="171.0" layoutY="290.0" mnemonicParsing="false" />
+            <RadioButton layoutX="470.0" layoutY="337.0" mnemonicParsing="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
