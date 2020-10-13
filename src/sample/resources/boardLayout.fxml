@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane prefHeight="538.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Board">
+<AnchorPane onMouseClicked="#onClickEvent" prefHeight="538.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Board">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="400.0" layoutX="166.0" layoutY="26.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="300.0" layoutX="216.0" layoutY="76.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
@@ -14,29 +14,29 @@
       <Line endX="-100.0" endY="-77.0" layoutX="465.0" layoutY="404.0" startX="-100.0" startY="25.0" />
       <Line endX="50.0" layoutX="516.0" layoutY="226.0" startX="-50.0" />
       <Line endX="-100.0" endY="-77.0" layoutX="466.0" layoutY="102.0" startX="-100.0" startY="25.0" />
-      <Circle fill="WHITE" layoutX="166.0" layoutY="26.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="166.0" layoutY="227.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="166.0" layoutY="426.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="365.0" layoutY="426.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="566.0" layoutY="426.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="365.0" layoutY="376.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="365.0" layoutY="326.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="267.0" layoutY="326.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="466.0" layoutY="326.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="216.0" layoutY="376.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="516.0" layoutY="376.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="216.0" layoutY="227.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="216.0" layoutY="76.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="366.0" layoutY="76.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="516.0" layoutY="76.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="367.0" layoutY="25.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="566.0" layoutY="26.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="567.0" layoutY="227.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="516.0" layoutY="226.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="466.0" layoutY="226.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="466.0" layoutY="128.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="367.0" layoutY="126.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="266.0" layoutY="128.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="267.0" layoutY="226.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="a1" fill="WHITE" layoutX="166.0" layoutY="26.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="a4" fill="WHITE" layoutX="166.0" layoutY="227.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="a7" fill="WHITE" layoutX="166.0" layoutY="426.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="d7" fill="WHITE" layoutX="365.0" layoutY="426.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="g7" fill="WHITE" layoutX="566.0" layoutY="426.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="d6" fill="WHITE" layoutX="365.0" layoutY="376.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="d5" fill="WHITE" layoutX="365.0" layoutY="326.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="c5" fill="WHITE" layoutX="267.0" layoutY="326.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="e5" fill="WHITE" layoutX="466.0" layoutY="326.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="b6" fill="WHITE" layoutX="216.0" layoutY="376.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="f6" fill="WHITE" layoutX="516.0" layoutY="376.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="b4" fill="WHITE" layoutX="216.0" layoutY="227.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="b2" fill="WHITE" layoutX="216.0" layoutY="76.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="d2" fill="WHITE" layoutX="366.0" layoutY="76.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="f2" fill="WHITE" layoutX="516.0" layoutY="76.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="d1" fill="WHITE" layoutX="367.0" layoutY="25.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="g1" fill="WHITE" layoutX="566.0" layoutY="26.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="g4" fill="WHITE" layoutX="567.0" layoutY="227.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="f4" fill="WHITE" layoutX="516.0" layoutY="226.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="e4" fill="WHITE" layoutX="466.0" layoutY="226.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="e3" fill="WHITE" layoutX="466.0" layoutY="128.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="d3" fill="WHITE" layoutX="367.0" layoutY="126.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="c3" fill="WHITE" layoutX="266.0" layoutY="128.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="c4" fill="WHITE" layoutX="267.0" layoutY="226.0" onMouseClicked="#onClickEvent" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </AnchorPane>
