@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane onMouseClicked="#onClickEvent" prefHeight="538.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Board">
+<AnchorPane  prefHeight="538.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Board">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="400.0" layoutX="166.0" layoutY="26.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="300.0" layoutX="216.0" layoutY="76.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />

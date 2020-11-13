@@ -4,10 +4,10 @@
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/nine-mens-morris/sample/Controllers/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/nine-mens-morris/sample/Controllers/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/nine-mens-morris/sample/Controllers/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/nine-mens-morris/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/nine-mens-morris/sample/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/nine-mens-morris/sample/resources/boardLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/nine-mens-morris/sample/resources/boardLayout.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controllers/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controllers/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/resources/boardLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/resources/boardLayout.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,8 +62,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -96,10 +96,15 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="extract.method.default.visibility" value="public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nine-mens-morris-Backup/nine-mens-morris-0cc33736f3719c118f5847408881a149674cbb8e/src" />
     <property name="recentsLimit" value="5" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -201,7 +206,18 @@
       <workItem from="1602122175943" duration="5686000" />
       <workItem from="1602194242233" duration="898000" />
       <workItem from="1602277488841" duration="1648000" />
-      <workItem from="1602559765203" duration="12669000" />
+      <workItem from="1602559765203" duration="16203000" />
+      <workItem from="1602630900365" duration="1235000" />
+      <workItem from="1602779166204" duration="1967000" />
+      <workItem from="1602882900031" duration="588000" />
+      <workItem from="1602994229019" duration="891000" />
+      <workItem from="1603484400934" duration="560000" />
+      <workItem from="1603910783342" duration="3341000" />
+      <workItem from="1604892118322" duration="19754000" />
+      <workItem from="1604985084402" duration="37000" />
+      <workItem from="1604985260229" duration="34116000" />
+      <workItem from="1605168206274" duration="17804000" />
+      <workItem from="1605305730955" duration="66000" />
     </task>
     <servers />
   </component>
@@ -213,25 +229,69 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1320" height="178" key="GridCell.Tab.0.bottom" timestamp="1602574391753">
+    <state x="413" y="120" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1604958716451">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1320" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602574391753" />
-    <state width="1320" height="178" key="GridCell.Tab.0.center" timestamp="1602574391753">
+    <state x="413" y="120" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1604958716451" />
+    <state x="137" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604984915970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1320" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602574391753" />
-    <state width="1320" height="178" key="GridCell.Tab.0.left" timestamp="1602574391752">
+    <state x="137" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1604984915970" />
+    <state x="488" y="81" key="#com.intellij.ide.util.MemberChooser" timestamp="1605044878192">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1320" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602574391752" />
-    <state width="1320" height="178" key="GridCell.Tab.0.right" timestamp="1602574391753">
+    <state x="488" y="81" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1605044878192" />
+    <state x="479" y="250" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1605031057113">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1320" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602574391753" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1602559766215">
+    <state x="479" y="250" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1605031057113" />
+    <state x="430" y="221" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1604962389337">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1602559766215" />
+    <state x="430" y="221" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1604962389337" />
+    <state x="463" y="66" key="FileChooserDialogImpl" timestamp="1604994357113">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="66" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604994357113" />
+    <state width="1323" height="239" key="GridCell.Tab.0.bottom" timestamp="1605297901821">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="239" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605297901821" />
+    <state width="1323" height="239" key="GridCell.Tab.0.center" timestamp="1605297901821">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="239" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605297901821" />
+    <state width="1323" height="239" key="GridCell.Tab.0.left" timestamp="1605297901820">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="239" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605297901820" />
+    <state width="1323" height="239" key="GridCell.Tab.0.right" timestamp="1605297901821">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="239" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605297901821" />
+    <state x="348" y="64" key="NewModule_or_Project.wizard" timestamp="1604994368576">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="348" y="64" key="NewModule_or_Project.wizard/0.0.1366.728@0.0.1366.728" timestamp="1604994368576" />
+    <state x="184" y="7" key="SettingsEditor" timestamp="1604985057996">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604985057996" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1605305730036">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1605305730036" />
+    <state x="92" y="88" width="579" height="494" key="dock-window-1" timestamp="1605049995759">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="88" width="579" height="494" key="dock-window-1/0.0.1366.728@0.0.1366.728" timestamp="1605049995759" />
+    <state x="676" y="0" width="697" height="371" key="dock-window-2" timestamp="1605050009018">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="676" y="0" width="697" height="371" key="dock-window-2/0.0.1366.728@0.0.1366.728" timestamp="1605050009018" />
+    <state x="488" y="134" key="extract.method.dialog" timestamp="1605173785177">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="134" key="extract.method.dialog/0.0.1366.728@0.0.1366.728" timestamp="1605173785177" />
   </component>
 </project>
