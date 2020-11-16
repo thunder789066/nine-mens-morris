@@ -10,6 +10,8 @@ public class Board {
     public boolean deleteMill = false;
     //(deleteMill) if this is true the "if(deleteMill)" will run below
 
+    public boolean p1;
+    public boolean p2;
 
     public boolean flySwitch;
     public boolean phase1 = true;
@@ -17,6 +19,7 @@ public class Board {
     public boolean phase3 = false;
     public boolean finalStage = false;
     public boolean key =true;
+    public boolean flyUnlock;
 
     public boolean flyPieces = false;
 
@@ -81,43 +84,6 @@ public class Board {
             f2, f4, f6,
             g1, g4, g7;
     // Circle is used to interact with the Circles on the Gui
-
-
-    //********* These Methods below are used to check if a mill happened ********
-    public void checkMill1(Pieces spot, int num) {
-        if ((spot.mill1[0].taken == true) && (spot.playerNumber == num)) {// if that piece is taken and it match player add count
-            if ((spot.mill1[1].taken == true) && (spot.playerNumber == num)) {
-                if ((spot.mill1[2].taken == true) && (spot.playerNumber == num)) {
-                    spot.mill1[0].isInMIll = true;
-                    spot.mill1[1].isInMIll = true;
-                    spot.mill1[2].isInMIll = true;
-
-                    deleteMill = true;
-                    backToPlayer = true;
-                    System.out.println("DESTROY MILL 1");
-                }
-            }
-        }
-    }
-
-
-    public void checkMill2(Pieces spot, int num) {
-        if ((spot.mill2[0].taken == true) && (spot.playerNumber == num)) {// if that piece is taken and it match player add count
-            if ((spot.mill2[1].taken == true) && (spot.playerNumber == num)) {
-                if ((spot.mill2[2].taken == true) && (spot.playerNumber == num)) {
-                    spot.mill2[0].isInMIll = true;
-                    spot.mill2[1].isInMIll = true;
-                    spot.mill2[2].isInMIll = true;
-
-                    deleteMill = true;
-                    backToPlayer = true;
-                    System.out.println("DESTROY MILL 2");
-                }
-            }
-        }
-    }
-
-    //************************************
 
 
     ////// This here is the core of the program
@@ -266,20 +232,14 @@ public class Board {
                 f2, f4, f6,
                 g1, g4, g7
         };
-        //(boardlayout) This is an array used later to check information on each piece.
-
-        //System.out.println(a1.getId());  // This prints out the id of whatever object passed.
-        //System.out.println(mouseEvent.getPickResult().getIntersectedNode().getId()); //This gets the id of whatever is clicked.
-        // System.out.println(circleLabel);
-        //System.out.println(clickedCircle);
 
 
         Circle clickedCircle = (Circle) mouseEvent.getTarget();
         String circleLabel = clickedCircle.getId();
         if (finalStage) {
             if ((Player1.gamePieces <= 3 || Player2.gamePieces <= 3) && key == true) {
+                System.out.println("PIECES CAN FLY NOW BROOOOOO");
                 phase2 = false;
-                phase3 = true;
                 flyPieces = true;// This helps with phase 3
                 switchMill = false;
                 key = false;
@@ -292,226 +252,188 @@ public class Board {
 
 
         if (phase1 && deleteMill == false) {
-                for (int i = 0; i < boardlayout.length; i++) {
+            for (int i = 0; i < boardlayout.length; i++) {
 
-                    if ((boardlayout[i].id.equals(mouseEvent.getPickResult().getIntersectedNode().getId())) && (boardlayout[i].taken == false)) { // If array index = id of circle clicked
-                        if (isFirstPlayer == true) {
-                            clickedCircle.setFill(Paint.valueOf("RED"));
-                            boardlayout[i].taken = true;
-                            boardlayout[i].ownedByPlayer = 1;
-                            boardlayout[i].playerNumber = 1;
-                            Player1.startingPieces--;
-                            System.out.println(Player1.startingPieces); // just to check initial count
+                if ((boardlayout[i].id.equals(mouseEvent.getPickResult().getIntersectedNode().getId())) && (boardlayout[i].taken == false)) { // If array index = id of circle clicked
+                    if (isFirstPlayer == true) {
+                        clickedCircle.setFill(Paint.valueOf("RED"));
+                        boardlayout[i].taken = true;
+                        boardlayout[i].ownedByPlayer = 1;
+                        boardlayout[i].playerNumber = 1;
+                        Player1.startingPieces--;
+                        System.out.println("PLAYER 1 HAS "+ Player1.startingPieces+" PIECES LEFT"); // just to check initial count
 
-                            //*************IF THERE IS A MILL *******************************
-                            if ((boardlayout[i].mill1[0].taken == true) && (boardlayout[i].mill1[0].playerNumber == 1)){
-                                if ((boardlayout[i].mill1[1].taken == true) && (boardlayout[i].mill1[1].playerNumber == 1)){
-                                    if ((boardlayout[i].mill1[2].taken == true) && (boardlayout[i].mill1[2].playerNumber == 1)){
-                                        boardlayout[i].mill1[0].isInMIll = true;
-                                        boardlayout[i].mill1[1].isInMIll = true;
-                                        boardlayout[i].mill1[2].isInMIll = true;
-                                        ///INCORPERATE PIECE TO DELETE
-                                        deleteMill = true;
-                                        backToPlayer = true;
-                                        System.out.println("DESTROY MILL 1");
+                        //*************IF THERE IS A MILL *******************************
+                        if ((boardlayout[i].mill1[0].taken == true) && (boardlayout[i].mill1[0].playerNumber == 1)){
+                            if ((boardlayout[i].mill1[1].taken == true) && (boardlayout[i].mill1[1].playerNumber == 1)){
+                                if ((boardlayout[i].mill1[2].taken == true) && (boardlayout[i].mill1[2].playerNumber == 1)){
+                                    boardlayout[i].mill1[0].isInMIll = true;
+                                    boardlayout[i].mill1[1].isInMIll = true;
+                                    boardlayout[i].mill1[2].isInMIll = true;
+                                    deleteMill = true;
+                                    backToPlayer = true;
+                                    System.out.println("DESTROY MILL 1");
 
-                                    }
                                 }
                             }
-                            //****************************************************************
-                            //*************IF THERE IS A MILL2 *******************************
-                            if ((boardlayout[i].mill2[0].taken == true) && (boardlayout[i].mill2[0].playerNumber == 1)){
-                                if ((boardlayout[i].mill2[1].taken == true) && (boardlayout[i].mill2[1].playerNumber == 1)){
-                                    if ((boardlayout[i].mill2[2].taken == true) && (boardlayout[i].mill2[2].playerNumber == 1)){
-                                        boardlayout[i].mill2[0].isInMIll = true;
-                                        boardlayout[i].mill2[1].isInMIll = true;
-                                        boardlayout[i].mill2[2].isInMIll = true;
-                                        ///INCORPERATE PIECE TO DELETE
-                                        deleteMill = true;
-                                       // backToPlayer = true;
-                                        System.out.println("DESTROY MILL 2");
-
-                                    }
-                                }
-                            }
-                            //checkMill1(boardlayout[i], 1);
-                            //checkMill2(boardlayout[i], 1);
-                            isFirstPlayer = false;
-                            break;
                         }
-                        if (isFirstPlayer == false) { // PLAYER 2 TURN
-                            clickedCircle.setFill(Paint.valueOf("BLUE"));///
-                            boardlayout[i].taken = true;
-                            boardlayout[i].ownedByPlayer = 2;
-                            boardlayout[i].playerNumber = 2;
-                            Player2.startingPieces--;
-                            System.out.println("PLAYER TWO : "+Player2.startingPieces);
+                        //****************************************************************
+                        //*************IF THERE IS A MILL2 *******************************
+                        if ((boardlayout[i].mill2[0].taken == true) && (boardlayout[i].mill2[0].playerNumber == 1)){
+                            if ((boardlayout[i].mill2[1].taken == true) && (boardlayout[i].mill2[1].playerNumber == 1)){
+                                if ((boardlayout[i].mill2[2].taken == true) && (boardlayout[i].mill2[2].playerNumber == 1)){
+                                    boardlayout[i].mill2[0].isInMIll = true;
+                                    boardlayout[i].mill2[1].isInMIll = true;
+                                    boardlayout[i].mill2[2].isInMIll = true;
+                                    deleteMill = true;
+                                    System.out.println("DESTROY MILL 2");
 
-                            //*************IF THERE IS A MILL *******************************
-                            if ((boardlayout[i].mill1[0].taken == true) && (boardlayout[i].mill1[0].playerNumber == 2)){
-                                if ((boardlayout[i].mill1[1].taken == true) && (boardlayout[i].mill1[1].playerNumber == 2)){
-                                    if ((boardlayout[i].mill1[2].taken == true) && (boardlayout[i].mill1[2].playerNumber == 2)){
-                                        boardlayout[i].mill1[0].isInMIll = true;
-                                        boardlayout[i].mill1[1].isInMIll = true;
-                                        boardlayout[i].mill1[2].isInMIll = true;
-                                        ///INCORPERATE PIECE TO DELETE
-                                        deleteMill = true;
-                                       // backToPlayer = true;
-                                        System.out.println("DESTROY MILL 1");
-
-                                    }
                                 }
                             }
-                            //****************************************************************
-                            //*************IF THERE IS A MILL2 *******************************
-                            if ((boardlayout[i].mill2[0].taken == true) && (boardlayout[i].mill2[0].playerNumber == 2)){
-                                if ((boardlayout[i].mill2[1].taken == true) && (boardlayout[i].mill2[1].playerNumber == 2)){
-                                    if ((boardlayout[i].mill2[2].taken == true) && (boardlayout[i].mill2[2].playerNumber == 2)){
-                                        boardlayout[i].mill2[0].isInMIll = true;
-                                        boardlayout[i].mill2[1].isInMIll = true;
-                                        boardlayout[i].mill2[2].isInMIll = true;
-                                        ///INCORPERATE PIECE TO DELETE
-                                        deleteMill = true;
-                                        //backToPlayer = true;
-                                        System.out.println("DESTROY MILL 2");
-
-                                    }
-                                }
-                            }
-                            //checkMill1(boardlayout[i], 2);
-                            //checkMill2(boardlayout[i], 2);
-                            isFirstPlayer = true;///
-                            break;
                         }
+                        isFirstPlayer = false;
+                        break;
+                    }
+                    if (isFirstPlayer == false) { // PLAYER 2 TURN
+                        clickedCircle.setFill(Paint.valueOf("BLUE"));///
+                        boardlayout[i].taken = true;
+                        boardlayout[i].ownedByPlayer = 2;
+                        boardlayout[i].playerNumber = 2;
+                        Player2.startingPieces--;
+                        System.out.println("PLAYER TWO HAS : "+Player2.startingPieces+" PIECES LEFT TO PLACE");
+
+                        //*************IF THERE IS A MILL *******************************
+                        if ((boardlayout[i].mill1[0].taken == true) && (boardlayout[i].mill1[0].playerNumber == 2)){
+                            if ((boardlayout[i].mill1[1].taken == true) && (boardlayout[i].mill1[1].playerNumber == 2)){
+                                if ((boardlayout[i].mill1[2].taken == true) && (boardlayout[i].mill1[2].playerNumber == 2)){
+                                    boardlayout[i].mill1[0].isInMIll = true;
+                                    boardlayout[i].mill1[1].isInMIll = true;
+                                    boardlayout[i].mill1[2].isInMIll = true;
+                                    deleteMill = true;
+                                    System.out.println("DESTROY MILL 1");
+
+                                }
+                            }
+                        }
+                        //****************************************************************
+                        //*************IF THERE IS A MILL2 *******************************
+                        if ((boardlayout[i].mill2[0].taken == true) && (boardlayout[i].mill2[0].playerNumber == 2)){
+                            if ((boardlayout[i].mill2[1].taken == true) && (boardlayout[i].mill2[1].playerNumber == 2)){
+                                if ((boardlayout[i].mill2[2].taken == true) && (boardlayout[i].mill2[2].playerNumber == 2)){
+                                    boardlayout[i].mill2[0].isInMIll = true;
+                                    boardlayout[i].mill2[1].isInMIll = true;
+                                    boardlayout[i].mill2[2].isInMIll = true;
+                                    deleteMill = true;
+                                    System.out.println("DESTROY MILL 2");
+
+                                }
+                            }
+                        }
+                        isFirstPlayer = true;///
+                        break;
                     }
                 }
-               // if (!isFirstPlayer) {
-               //     System.out.println("NOTNOTNOTNOTNOTNOTNOTNOTNOTNOTNOTNO");
-              //  }
-                if (Player1.startingPieces + Player2.startingPieces == 0){
-                    phase1 = false;
-                    canSwitch = true;
-                }
             }
+            if (Player1.startingPieces + Player2.startingPieces == 0){
+                phase1 = false;
+                canSwitch = true;
+            }
+        }
 
         /****************************THIS IS ALL PHASE TWO ***************************
          * ***************************************************************************
          */
-       if (phase2) {
-           if (canSwitch) {   // if we are able to switch pieces
-               if ((Player1.startingPieces + Player2.startingPieces <= 2) && deleteMill == false) {   // If we are past phase1 and not in deleteMill mode
-                   for (int i = 0; i < boardlayout.length; i++) {
-                       if (((boardlayout[i].id.equals(mouseEvent.getPickResult().getIntersectedNode().getId())) && (boardlayout[i].taken == true))) {
-                           for (int j = 0; j < boardlayout[i].adjacent.length; j++) {
+        if (phase2) {
+            if (canSwitch) {   // if we are able to switch pieces
+                if ((Player1.startingPieces + Player2.startingPieces <= 2) && deleteMill == false) {   // If we are past phase1 and not in deleteMill mode
+                    for (int i = 0; i < boardlayout.length; i++) {
+                        if (((boardlayout[i].id.equals(mouseEvent.getPickResult().getIntersectedNode().getId())) && (boardlayout[i].taken == true))) {
+                            for (int j = 0; j < boardlayout[i].adjacent.length; j++) {
 
-                               if (boardlayout[i].adjacent[j].taken == false) {
-                                   SWITCH.ownedByPlayer = boardlayout[i].ownedByPlayer;
-                                   System.out.println("OWNED BY " + SWITCH.ownedByPlayer);
-                                   SWITCH.playerNumber = boardlayout[i].playerNumber;
-                                   System.out.println("PLAYER NUM " + SWITCH.ownedByPlayer);      //If the peice we selected  has an adjacent space, copy contents
-                                   // might have to iterate throught this
-
-                                   SWITCH.adjacent = boardlayout[i].adjacent;
-                                   System.out.println(SWITCH.adjacent);
-                                   SWITCH.id = boardlayout[i].id;
-                                   System.out.println("THE ID IS " + SWITCH.id);
-                                   System.out.println("**********************************************************");
-                                   for(int k = 0; k < boardlayout[i].adjacent.length;k++){
-                                       boardlayout[i].adjacent[k].isInMIll = false;
-                                   }
-                                   boardlayout[i].taken = false;
-                                   boardlayout[i].isInMIll=false;
-                                   clickedCircle.setFill(Paint.valueOf("WHITE"));
-                                   boardlayout[i].ownedByPlayer = 0;
-                                   boardlayout[i].playerNumber = 0;
-                                   canSwitch = false;
-                                   switchMill = true;
-                                   //if( Player1.gamePieces <= 3 || Player2.gamePieces <= 3){
-                                   //    switchMill = false;
-                                   //    phase3 = true; //REMEMBER CANSWITCH NEEDS TO GO BACK TO TRUE
-                                   //}
-                                   break;
-                               }
-
-                               }
-                           }
-                       }
-                   }
-
-               }
-
-       }
-       // if (phase3) {
-
-       // }
-
+                                if (boardlayout[i].adjacent[j].taken == false) {
+                                    SWITCH.ownedByPlayer = boardlayout[i].ownedByPlayer;
+                                    System.out.println("OWNED BY " + SWITCH.ownedByPlayer);
+                                    SWITCH.playerNumber = boardlayout[i].playerNumber;
+                                    System.out.println("PLAYER NUM " + SWITCH.ownedByPlayer);      //If the peice we selected  has an adjacent space, copy contents
+                                    SWITCH.adjacent = boardlayout[i].adjacent;
+                                    //System.out.println(SWITCH.adjacent);
+                                    SWITCH.id = boardlayout[i].id;
+                                    System.out.println("THE ID IS " + SWITCH.id);
+                                    System.out.println("**********************************************************");
+                                    for(int k = 0; k < boardlayout[i].adjacent.length;k++){
+                                        boardlayout[i].adjacent[k].isInMIll = false;
+                                    }
+                                    boardlayout[i].taken = false;
+                                    boardlayout[i].isInMIll=false;
+                                    clickedCircle.setFill(Paint.valueOf("WHITE"));
+                                    boardlayout[i].ownedByPlayer = 0;
+                                    boardlayout[i].playerNumber = 0;
+                                    canSwitch = false;
+                                    switchMill = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         if(switchMill == true && deleteMill == false) {
-            System.out.println("SWITCHMILL STILL HIT BRODIE");
+            //System.out.println("SWITCHMILL STILL HIT BRODIE");
             for (int i = 0; i < SWITCH.adjacent.length; i++) {
                 if ((SWITCH.adjacent[i].id.equals(mouseEvent.getPickResult().getIntersectedNode().getId())) && (SWITCH.adjacent[i].taken == false)) {
-                   // if what is clicked id matches any of the adjacent ids and it isnt take
+                    // if what is clicked id matches any of the adjacent ids and it isnt take
 
 
-                                if(isFirstPlayer == true){
-                                    for (int j = 0; i < boardlayout.length;j++){
-                                        if(boardlayout[j].id.equals(mouseEvent.getPickResult().getIntersectedNode().getId())){
-                                            clickedCircle.setFill(Paint.valueOf("RED"));
-                                            boardlayout[j].taken = true;
-                                            boardlayout[j].ownedByPlayer = 1;
-                                            boardlayout[j].playerNumber = 1;
+                    if(isFirstPlayer == true){
+                        for (int j = 0; i < boardlayout.length;j++){
+                            if(boardlayout[j].id.equals(mouseEvent.getPickResult().getIntersectedNode().getId())){
+                                clickedCircle.setFill(Paint.valueOf("RED"));
+                                boardlayout[j].taken = true;
+                                boardlayout[j].ownedByPlayer = 1;
+                                boardlayout[j].playerNumber = 1;
 
-                                            //*************IF THERE IS A MILL *******************************
-                                            if ((boardlayout[j].mill1[0].taken == true) && (boardlayout[j].mill1[0].playerNumber == 1)){
-                                                if ((boardlayout[j].mill1[1].taken == true) && (boardlayout[j].mill1[1].playerNumber == 1)){
-                                                    if ((boardlayout[j].mill1[2].taken == true) && (boardlayout[j].mill1[2].playerNumber == 1)){
-                                                        boardlayout[j].mill1[0].isInMIll = true;
-                                                        boardlayout[j].mill1[1].isInMIll = true;
-                                                        boardlayout[j].mill1[2].isInMIll = true;
-                                                        ///INCORPERATE PIECE TO DELETE
-                                                        deleteMill = true;
-                                                        backToPlayer = true;
-                                                        System.out.println("DESTROY MILL 1");
-
-                                                    }
-                                                }
-                                            }
-                                            //****************************************************************
-                                            //*************IF THERE IS A MILL2 *******************************
-                                            if ((boardlayout[j].mill2[0].taken == true) && (boardlayout[j].mill2[0].playerNumber == 1)){
-                                                if ((boardlayout[j].mill2[1].taken == true) && (boardlayout[j].mill2[1].playerNumber == 1)){
-                                                    if ((boardlayout[j].mill2[2].taken == true) && (boardlayout[j].mill2[2].playerNumber == 1)){
-                                                        boardlayout[j].mill2[0].isInMIll = true;
-                                                        boardlayout[j].mill2[1].isInMIll = true;
-                                                        boardlayout[j].mill2[2].isInMIll = true;
-                                                        ///INCORPERATE PIECE TO DELETE
-                                                        deleteMill = true;
-                                                        // backToPlayer = true;
-                                                        System.out.println("DESTROY MILL 2");
-
-                                                    }
-                                                }
-                                            }
-                                            //checkMill1(boardlayout[i], 1);
-                                            //checkMill2(boardlayout[i], 1);
-                                            canSwitch = true;
-                                            isFirstPlayer = false;
-                                            break;
+                                //*************IF THERE IS A MILL *******************************
+                                if ((boardlayout[j].mill1[0].taken == true) && (boardlayout[j].mill1[0].playerNumber == 1)){
+                                    if ((boardlayout[j].mill1[1].taken == true) && (boardlayout[j].mill1[1].playerNumber == 1)){
+                                        if ((boardlayout[j].mill1[2].taken == true) && (boardlayout[j].mill1[2].playerNumber == 1)){
+                                            boardlayout[j].mill1[0].isInMIll = true;
+                                            boardlayout[j].mill1[1].isInMIll = true;
+                                            boardlayout[j].mill1[2].isInMIll = true;
+                                            deleteMill = true;
+                                            backToPlayer = true;
+                                            System.out.println("DESTROY MILL 1");
 
                                         }
                                     }
+                                }
+                                //****************************************************************
+                                //*************IF THERE IS A MILL2 *******************************
+                                if ((boardlayout[j].mill2[0].taken == true) && (boardlayout[j].mill2[0].playerNumber == 1)){
+                                    if ((boardlayout[j].mill2[1].taken == true) && (boardlayout[j].mill2[1].playerNumber == 1)){
+                                        if ((boardlayout[j].mill2[2].taken == true) && (boardlayout[j].mill2[2].playerNumber == 1)){
+                                            boardlayout[j].mill2[0].isInMIll = true;
+                                            boardlayout[j].mill2[1].isInMIll = true;
+                                            boardlayout[j].mill2[2].isInMIll = true;
+                                            deleteMill = true;
+                                            System.out.println("DESTROY MILL 2");
 
-
-
-
-
+                                        }
+                                    }
+                                }
+                                canSwitch = true;
+                                isFirstPlayer = false;
+                                break;
                             }
-                            else{
-                                for (int j = 0; i < boardlayout.length;j++){
-                                    if(boardlayout[j].id.equals(mouseEvent.getPickResult().getIntersectedNode().getId())){
-                                        clickedCircle.setFill(Paint.valueOf("BLUE"));
-                                        boardlayout[j].taken = true;
-                                        boardlayout[j].ownedByPlayer = 2;
-                                        boardlayout[j].playerNumber = 2;
+                        }
+                    }
+                    else{
+                        for (int j = 0; i < boardlayout.length;j++){
+                            if(boardlayout[j].id.equals(mouseEvent.getPickResult().getIntersectedNode().getId())){
+                                clickedCircle.setFill(Paint.valueOf("BLUE"));
+                                boardlayout[j].taken = true;
+                                boardlayout[j].ownedByPlayer = 2;
+                                boardlayout[j].playerNumber = 2;
 
                                 //*************IF THERE IS A MILL *******************************
                                 if ((boardlayout[j].mill1[0].taken == true) && (boardlayout[j].mill1[0].playerNumber == 2)){
@@ -544,67 +466,23 @@ public class Board {
                                         }
                                     }
                                 }
-                                //checkMill1(boardlayout[i], 1);
-                                //checkMill2(boardlayout[i], 1);
                                 canSwitch = true;
                                 isFirstPlayer = true;
                                 break;
-
                             }
                         }
-
-
-
-
-
                     }
-
-
-
                 }
             }
         }
+        if(phase3){
+            if (p1){
+                isFirstPlayer = true;}
 
-
-
-        /****************************THIS IS ALL PHASE THREE ***************************
-         * ***************************************************************************
-         */
-
-          /*  if (flyPieces == true) {   // if we are able to switch pieces
-                if ((Player1.gamePieces <=3 || Player2.gamePieces <= 3) && deleteMill == false) {   // If we are past phase1 and not in deleteMill mode
-                    for (int i = 0; i < boardlayout.length; i++) {
-                        if (((boardlayout[i].id.equals(mouseEvent.getPickResult().getIntersectedNode().getId())) && (boardlayout[i].taken == true))) {
-
-
-                                    System.out.println("THE ID IS " + SWITCH.id);
-                                    System.out.println("**********************************************************");
-                                    for(int k = 0; k < boardlayout[i].adjacent.length;k++){
-                                        boardlayout[i].adjacent[k].isInMIll = false;
-                                    }
-                                    boardlayout[i].taken = false;
-                                    boardlayout[i].isInMIll=false;
-                                    clickedCircle.setFill(Paint.valueOf("WHITE"));
-                                    boardlayout[i].ownedByPlayer = 0;
-                                    boardlayout[i].playerNumber = 0;
-                                    flyPieces = false;
-                                    flySwitch = true;
-                                    break;
-
-
-
-                        }
-                    }
-                }
-
-            }
-
-
-
-
-        if(flySwitch  == true && deleteMill == false) {
+            if (p2){isFirstPlayer = false;}
+           // System.out.println("IT hit PHASE 3 (1)");
             for (int i = 0; i < boardlayout.length; i++) {
-
+               // System.out.println("IT hit PHASE 3 (2)");
                 if ((boardlayout[i].id.equals(mouseEvent.getPickResult().getIntersectedNode().getId())) && (boardlayout[i].taken == false)) { // If array index = id of circle clicked
                     if (isFirstPlayer == true) {
                         clickedCircle.setFill(Paint.valueOf("RED"));
@@ -621,11 +499,12 @@ public class Board {
                                     boardlayout[i].mill1[2].isInMIll = true;
                                     ///INCORPERATE PIECE TO DELETE
                                     deleteMill = true;
-                                    flyPieces = true;
-                                    flySwitch = false;
                                     backToPlayer = true;
+                                    phase3 = false; /////CHECK TO SEE IF WE NEED TO MAKE FLY PIECES FALSE
+                                    flyUnlock = true;
+                                    flyPieces = false;
                                     System.out.println("DESTROY MILL 1");
-                                    break;
+
 
                                 }
                             }
@@ -640,20 +519,20 @@ public class Board {
                                     boardlayout[i].mill2[2].isInMIll = true;
                                     ///INCORPERATE PIECE TO DELETE
                                     deleteMill = true;
-                                    flyPieces = true;
-                                    flySwitch = false;
+                                    backToPlayer = true;
+                                    phase3 = false; /////CHECK TO SEE IF WE NEED TO MAKE FLY PIECES FALSE
+                                    flyUnlock = true;
+                                    flyPieces = false;
                                     // backToPlayer = true;
                                     System.out.println("DESTROY MILL 2");
-                                    break;
 
                                 }
                             }
                         }
-                        //checkMill1(boardlayout[i], 1);
-                        //checkMill2(boardlayout[i], 1);
-                        flyPieces = true;
-                        flySwitch = false;
+
                         isFirstPlayer = false;
+                        phase3 = false; /////CHECK TO SEE IF WE NEED TO MAKE FLY PIECES FALSE
+                        flyUnlock = true;
                         break;
                     }
                     if (isFirstPlayer == false) { // PLAYER 2 TURN
@@ -672,9 +551,11 @@ public class Board {
                                     boardlayout[i].mill1[2].isInMIll = true;
                                     ///INCORPERATE PIECE TO DELETE
                                     deleteMill = true;
-                                    // backToPlayer = true;
+                                    backToPlayer = true;
+                                    phase3 = false; /////CHECK TO SEE IF WE NEED TO MAKE FLY PIECES FALSE
+                                    flyUnlock = true;
+                                    flyPieces = false;
                                     System.out.println("DESTROY MILL 1");
-                                    break;
 
                                 }
                             }
@@ -689,9 +570,11 @@ public class Board {
                                     boardlayout[i].mill2[2].isInMIll = true;
                                     ///INCORPERATE PIECE TO DELETE
                                     deleteMill = true;
-                                    //backToPlayer = true;
+                                    backToPlayer = true;
+                                    phase3 = false; /////CHECK TO SEE IF WE NEED TO MAKE FLY PIECES FALSE
+                                    flyUnlock = true;
+                                    flyPieces = false;
                                     System.out.println("DESTROY MILL 2");
-                                    break;
 
                                 }
                             }
@@ -699,17 +582,54 @@ public class Board {
                         //checkMill1(boardlayout[i], 2);
                         //checkMill2(boardlayout[i], 2);
                         isFirstPlayer = true;///
+                        backToPlayer = true;
+                        phase3 = false; /////CHECK TO SEE IF WE NEED TO MAKE FLY PIECES FALSE
+                        flyUnlock = true;
                         break;
                     }
                 }
             }
-            // if (!isFirstPlayer) {
-            //     System.out.println("NOTNOTNOTNOTNOTNOTNOTNOTNOTNOTNOTNO");
-            //  }
 
-        }*/
+        }
+
+        if(flyPieces == true){
+            for (int i = 0; i < boardlayout.length; i++) {
+                if ((boardlayout[i].id.equals(mouseEvent.getPickResult().getIntersectedNode().getId())) && (boardlayout[i].taken == true)) {
+                    if (isFirstPlayer == true) {
+                       // System.out.println("Player 1 hit");
+                        clickedCircle.setFill(Paint.valueOf("WHITE"));
+                        boardlayout[i].taken = false;
+                        boardlayout[i].ownedByPlayer = 0;
+                        boardlayout[i].playerNumber = 0;
+                        flyPieces = false;
+                        flyUnlock = false;
+                        phase3 = true;
+                        p1=true;
+                        p2=false;
+
+                    }
+                    if (isFirstPlayer == false) {
+                        System.out.println("Player 2 hit");
+                        clickedCircle.setFill(Paint.valueOf("WHITE"));
+                        boardlayout[i].taken = false;
+                        boardlayout[i].ownedByPlayer = 0;
+                        boardlayout[i].playerNumber = 0;
+                        flyPieces = false;
+                        flyUnlock = false;
+                        phase3 = true;
+                        p2 = true;
+                        p1 = false;
+
+                    }
+                }
+            }
+        }
 
 
+
+        /****************************THIS IS WHAT DELETS MILLS ***************************
+         * ***************************************************************************
+         */
 
         if (deleteMill == true) {
             for (int i = 0; i < boardlayout.length; i++) {
@@ -722,7 +642,7 @@ public class Board {
                     boardlayout[i].isInMIll = false;
                     if (boardlayout[i].ownedByPlayer == 1) {
                         Player1.gamePieces--;
-                        System.out.println("Player 1 has " + Player1.gamePieces);
+                        System.out.println("Player 1 has " + Player1.gamePieces +" Total Pieces left");
                         boardlayout[i].ownedByPlayer = 0;
                         boardlayout[i].isInMIll = false;
                         isFirstPlayer = true;
@@ -730,37 +650,52 @@ public class Board {
                         if(deleteMill == false){
                             canSwitch = true;
                         }
-                       /* if ((Player1.gamePieces <= 3 || Player2.gamePieces <= 3) ){
+                        if ((Player1.gamePieces <= 3 || Player2.gamePieces <= 3) ){
                             finalStage = true;
-                        }*/
+                        }
+                        if (Player1.gamePieces <3){
+                            for(int k =0; k<allCircles.length;k++)
+                                allCircles[k].setFill(Paint.valueOf("BLUE"));
+                            System.out.println("GAME OVER");
+                        }
+                        if (Player2.gamePieces <3){
+                            for(int j =0; j<allCircles.length;j++)
+                                allCircles[j].setFill(Paint.valueOf("RED"));
+                            System.out.println("GAME OVER");
+                        }
                         break;
                     }
                     if (boardlayout[i].ownedByPlayer == 2) {
                         Player2.gamePieces--;
-                        System.out.println("Player 2 has " + Player2.gamePieces);
+                        System.out.println("Player 2 has " + Player2.gamePieces+ "Total Pieces Left");
                         boardlayout[i].ownedByPlayer = 0;
                         isFirstPlayer = false;
                         deleteMill = false;
                         if(deleteMill == false){
                             canSwitch = true;
                         }
-                       /* if ((Player1.gamePieces <= 3 || Player2.gamePieces <= 3) ){
+                        if ((Player1.gamePieces <= 3 || Player2.gamePieces <= 3) ){
                             finalStage = true;
-                        }*/
+                        }
+                        if (Player1.gamePieces <3){
+                            for(int k =0; k<allCircles.length;k++)
+                                allCircles[k].setFill(Paint.valueOf("BLUE"));
+                            System.out.println("GAME OVER");
+                        }
+                        if (Player2.gamePieces <3){
+                            for(int j =0; j<allCircles.length;j++)
+                                allCircles[j].setFill(Paint.valueOf("RED"));
+                            System.out.println("GAME OVER");
+                        }
                         break;
                     }
                 }
             }
         }
-        if (Player1.gamePieces <3){
-            for(int i =0; i<allCircles.length;i++)
-                allCircles[i].setFill(Paint.valueOf("BLUE"));
-        }
-        if (Player2.gamePieces <3){
-            for(int i =0; i<allCircles.length;i++)
-                allCircles[i].setFill(Paint.valueOf("RED"));
+
+
+        if (flyUnlock == true){ //this unlocks flying
+            flyPieces = true;
         }
     }
 }
-
-

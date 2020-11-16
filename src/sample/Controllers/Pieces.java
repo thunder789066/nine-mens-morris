@@ -29,32 +29,4 @@ public class Pieces {
                          f2,      f4,        f6,
                     g1,           g4,                g7 ;*/
 
-    HashMap<String, List<Pieces>> hashMap = new HashMap<String, List<Pieces>>();
-    List<Pieces> millOne = new ArrayList<Pieces>();
-    List<Pieces> millTwo = new ArrayList<Pieces>();
-    List<Pieces> listTwo = new ArrayList<Pieces>();
-
-    public void checkMill(Pieces spot,int num){
-        int count = 0;
-        for (int i =0;i<mill1.length;i++){
-            if ((mill1[i].taken == true) && (playerNumber == num)){
-                count ++;
-            }
-        }
-        if(count == 3){
-            System.out.println("DESTROY MILL");
-        }
-    }
-
-    public void checkMill2(Pieces spot,int num){
-        int count = 0;
-        for (int i =0;i<mill1.length;i++){
-            if ((mill1[i].taken == true) && (playerNumber == num)){
-                count ++;
-            }
-        }
-        if(count == 3){
-            System.out.println("DESTROY MILL");
-        }
-    }
 }
